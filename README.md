@@ -1,98 +1,71 @@
 # 🛡️ TrustGuard | Decentralized Freelance Escrow Protocol
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/your-repo/trustguard)
-[![Network](https://img.shields.io/badge/Blockchain-Polygon-purple)](https://polygon.technology/)
-[![Frontend](https://img.shields.io/badge/Frontend-Next.js-black)](https://nextjs.org/)
-[![Smart Contract](https://img.shields.io/badge/Logic-Solidity-blue)](https://soliditylang.org/)
-
-**TrustGuard** is a trustless, decentralized escrow platform designed to eliminate payment friction between freelancers and clients. By leveraging Ethereum smart contracts, we ensure that funds are only released when both parties are satisfied, or through fair arbitration.
+**Live Demo:** [frontend-red-ten-88.vercel.app](https://frontend-red-ten-88.vercel.app)  
+**GitHub:** [github.com/0xshobha/seedstrs](https://github.com/0xshobha/seedstrs)
 
 ---
 
-Existing freelance platforms charge high fees (10-20%) and often have slow, biased dispute resolution processes. Centralized entities can freeze accounts without notice, leading to financial instability for freelancers.
-
-### ✨ Solution Architecture
-TrustGuard uses a non-custodial escrow model:
-1. **Client** creates a job and funds the escrow with MATIC.
-2. **Freelancer** accepts the job, locking the agreement.
-3. **Client** approves the work → Funds are instantly released to the Freelancer.
-4. **Dispute?** Our built-in arbitration logic allows admins to resolve conflicts fairly.
+## 🚀 Welcome to TrustGuard
+**TrustGuard** is a trustless, decentralized escrow platform designed to eliminate payment friction between freelancers and clients. Built for the **Seedstr Hackathon**, our protocol ensures that funds are only released when both parties are satisfied, or through fair on-chain arbitration.
 
 ---
 
-## 🛠️ Tech Stack
-- **Frontend**: Next.js 14+ (App Router), TypeScript, Tailwind CSS, Framer Motion (Animations).
-- **Blockchain**: Solidity, Hardhat, Ethers.js.
-- **Library**: OpenZeppelin (ReentrancyGuard, Ownable).
-- **Network**: Polygon Mumbai Testnet (EVM Compatible).
+## 🏆 Hackathon Highlights
+- **Premium UX/UI**: High-end "Amoled Black & Claymorphism" design with real-time protocol statistics.
+- **Robust Security**: Protected by OpenZeppelin's `ReentrancyGuard` and audited logic patterns.
+- **On-Chain Settlement**: Full lifecycle management—from funding to release—completely on the Polygon network.
+- **Fair Arbitration**: Built-in dispute resolution handled by cryptographically authorized arbitrators.
 
 ---
 
-## 🔒 Security & Best Practices
-- **Reentrancy Protection**: High-level defense against multi-call attacks.
-- **Access Modifiers**: Cryptographically enforced role restrictions.
-- **Event Logging**: Every transaction is indexed for off-chain transparency.
-- **Input Sanitization**: Client-side validation to prevent malformed data.
+## ✨ Full-Cycle Escrow Architecture
+TrustGuard uses a non-custodial model where the Smart Contract acts as the neutral third party:
+1.  **Initiate**: Client creates a job and funds the escrow with MATIC/ETH.
+2.  **Lock**: Freelancer accepts the contract, binding the two parties.
+3.  **Deliver**: Work is performed outside of the protocol or attached via metadata.
+4.  **Settle**: Client approves work → Funds instantly release to the Freelancer.
+5.  **Dispute**: If conflict arises, either party can trigger an on-chain dispute for admin arbitration.
 
 ---
 
-## 📁 Folder Structure
+## 🛠️ Tech Stack & Layers
+- **Frontend Layer**: Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion.
+- **Protocol Layer**: Solidity 0.8.20, Hardhat, Ethers.js.
+- **Security Layer**: OpenZeppelin (ReentrancyGuard, Ownable).
+- **Network Layer**: Polygon Mumbai Testnet (EVM Compatible).
+
+---
+
+## 🔒 Security Features
+- **Reentrancy Protection**: High-level defense against multi-call drainage attacks.
+- **Role-Based Access**: Cryptographically enforced restrictions (OnlyClient, OnlyFreelancer).
+- **Event-Driven UI**: Every on-chain mutation triggers a professional toast notification.
+- **Fail-Safe Cancel**: Clients can revoke funding instantly if no freelancer has yet committed.
+
+---
+
+## ⚙️ Project Structure
 ```bash
 freelance-escrow/
-├── contracts/        # Solidity Core Logic (FreelanceEscrow.sol)
-├── scripts/          # Deployment & Migration scripts
-├── test/             # Comprehensive Unit Tests
-├── frontend/         # Next.js Web Application
-│   ├── components/   # Atomic UI Elements
-│   ├── hooks/        # Custom Web3 Logic
-│   └── utils/        # ABI & Constants
-└── docs/             # Deployment & Security Guides
+├── contracts/        # Core Solidity Protocol
+├── frontend/         # Premium Next.js Dashboard
+├── scripts/          # Network Deployment Scripts
+├── test/             # Correctness & Edge-Case Unit Tests
+└── docs/             # Technical & Security Documentation
 ```
 
 ---
 
-## ⚙️ Quick Start
-
-### 1. Smart Contract
-```bash
-# Install local dependencies
-npm install
-
-# Compile contracts
-npx hardhat --config hardhat.config.cjs compile
-
-# Run unit tests
-npx hardhat --config hardhat.config.cjs test
-```
-
-### 2. Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
----
-
-## 📸 Screenshots & Demo
-> [!NOTE]
-> *Insert Dashboard Screenshot Here*
-> *Insert Create Job Screenshot Here*
-
----
-
-## 🛤️ Future Roadmap
-- [ ] **Milestone Payments**: Split jobs into multiple funded stages.
-- [ ] **ERC-20 Support**: Allow payments in USDC, USDT, or DAI.
-- [ ] **DAO Arbitration**: Decentralize the arbitration process via community voting.
-- [ ] **Review System**: On-chain reputation for clients and freelancers.
+## 🛤️ Roadmap (Future Extensions)
+- [ ] **Milestone Payments**: Automated multi-stage funding releases.
+- [ ] **ERC-20 Multi-Asset Support**: Pay in stablecoins (USDC/DAI).
+- [ ] **Decentralized Arbitration (DAO)**: Community-led dispute resolution.
+- [ ] **On-Chain Reputation**: Performance-based trust scores for users.
 
 ---
 
 ## 📄 License
-This project is licensed under the **MIT License**.
+TrustGuard is released under the **MIT License**.
 
 ---
-
-## 👥 Contributors
-- **TrustGuard Team** - *Built for the Future of Work.*
+*Built with ❤️ for the Seedstr Hackathon.*
