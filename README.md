@@ -1,6 +1,6 @@
 # 🛡️ TrustGuard | Decentralized Freelance Escrow Protocol
 
-**Live Demo:** [frontend-red-ten-88.vercel.app](https://frontend-red-ten-88.vercel.app)  
+**Live Demo:** [seedstrs-shobhavash09-8326s-projects.vercel.app/seedstr](https://seedstrs-shobhavash09-8326s-projects.vercel.app/seedstr)  
 **GitHub:** [github.com/0xshobha/seedstrs](https://github.com/0xshobha/seedstrs)
 
 ---
