@@ -9,10 +9,6 @@
 
 ---
 
-## 🚀 Project Overview
-In the traditional freelance market, "payment after delivery" is a risky gamble for freelancers, while "payment upfront" is a risk for clients. **TrustGuard** solves this by acting as a binary neutral third party (the Smart Contract).
-
-### 💡 Problem Statement
 Existing freelance platforms charge high fees (10-20%) and often have slow, biased dispute resolution processes. Centralized entities can freeze accounts without notice, leading to financial instability for freelancers.
 
 ### ✨ Solution Architecture
