@@ -7,6 +7,12 @@
 import { agentAi } from './genkit';
 import { z } from 'genkit';
 
+const CodeGeneratorSchema = z.object({
+    filename: z.string().describe('The name of the file to generate (e.g., "Header.tsx").'),
+    purpose: z.string().describe('Detailed description of what the code should do.'),
+    techStack: z.array(z.string()).describe('List of technologies to implement (e.g., ["React", "Tailwind"]).'),
+});
+
 /**
  * Tool: codeGenerator
  * Purpose: Generates clean, production-ready code for specific files or components.
@@ -15,14 +21,10 @@ export const codeGeneratorTool = agentAi.defineTool(
     {
         name: 'codeGenerator',
         description: 'Generates high-quality, production-ready code for a specific file or component.',
-        inputSchema: z.object({
-            filename: z.string().describe('The name of the file to generate (e.g., "Header.tsx").'),
-            purpose: z.string().describe('Detailed description of what the code should do.'),
-            techStack: z.array(z.string()).describe('List of technologies to implement (e.g., ["React", "Tailwind"]).'),
-        }),
+        inputSchema: CodeGeneratorSchema,
         outputSchema: z.string(),
     },
-    async (input) => {
+    async (input: z.infer<typeof CodeGeneratorSchema>) => {
         const { filename, purpose, techStack } = input;
         const response = await agentAi.generate({
             prompt: `Act as a Senior Full-Stack AI Engineer. Generate a production-ready file named "${filename}" for the following purpose: ${purpose}. 
@@ -33,6 +35,11 @@ export const codeGeneratorTool = agentAi.defineTool(
     }
 );
 
+const ProjectScaffolderSchema = z.object({
+    projectName: z.string().describe('The name of the project.'),
+    description: z.string().describe('A detailed overview of the project functionality.'),
+});
+
 /**
  * Tool: projectScaffolder
  * Purpose: Plans and defines the directory structure for complex applications.
@@ -41,16 +48,13 @@ export const projectScaffolderTool = agentAi.defineTool(
     {
         name: 'projectScaffolder',
         description: 'Scaffolds a comprehensive project structure based on user requirements.',
-        inputSchema: z.object({
-            projectName: z.string().describe('The name of the project.'),
-            description: z.string().describe('A detailed overview of the project functionality.'),
-        }),
+        inputSchema: ProjectScaffolderSchema,
         outputSchema: z.object({
             files: z.array(z.string()).describe('List of essential files to be created.'),
             structure: z.string().describe('A visual representation of the directory structure.'),
         }),
     },
-    async (input) => {
+    async (input: z.infer<typeof ProjectScaffolderSchema>) => {
         const { projectName, description } = input;
         const response = await agentAi.generate({
             prompt: `Plan a professional project structure for "${projectName}". 
@@ -60,12 +64,21 @@ export const projectScaffolderTool = agentAi.defineTool(
         });
         try {
             const jsonMatch = response.text.match(/\{[\s\S]*\}/);
-            return JSON.parse(jsonMatch ? jsonMatch[0] : response.text);
+            const data = JSON.parse(jsonMatch ? jsonMatch[0] : response.text);
+            return {
+                files: Array.isArray(data.files) ? data.files : [],
+                structure: typeof data.structure === 'string' ? data.structure : 'Structure generation failed'
+            };
         } catch (e) {
             return { files: [], structure: 'Error parsing architectural plan' };
         }
     }
 );
+
+const CodeExplainerSchema = z.object({
+    codeSnippet: z.string().describe('The code or architecture to explain.'),
+    context: z.string().describe('Additional context or specific questions about the code.'),
+});
 
 /**
  * Tool: codeExplainer
@@ -75,13 +88,10 @@ export const codeExplainerTool = agentAi.defineTool(
     {
         name: 'codeExplainer',
         description: 'Provides a detailed technical explanation of a given code snippet or architecture.',
-        inputSchema: z.object({
-            codeSnippet: z.string().describe('The code or architecture to explain.'),
-            context: z.string().describe('Additional context or specific questions about the code.'),
-        }),
+        inputSchema: CodeExplainerSchema,
         outputSchema: z.string(),
     },
-    async (input) => {
+    async (input: z.infer<typeof CodeExplainerSchema>) => {
         const { codeSnippet, context } = input;
         const response = await agentAi.generate({
             prompt: `As an AI Architect, explain the following code or system design:
@@ -110,7 +120,7 @@ export const seedstrAgent = agentAi.defineFlow(
         }),
         outputSchema: z.string(),
     },
-    async (input) => {
+    async (input: { prompt: string }) => {
         const { prompt } = input;
         const response = await agentAi.generate({
             prompt: `You are Seedstr Nexus, the flagship "well-rounded" AI agent for the Seedstr Blind Hackathon. 
