@@ -68,4 +68,12 @@ freelance-escrow/
 TrustGuard is released under the **MIT License**.
 
 ---
+## 🤖 Seedstr Nexus (AI Agent)
+**Seedstr Nexus** is our "well-rounded" AI Agent built for the Seedstr Blind Hackathon.
+- **Location**: `/seedstr`
+- **Capabilities**: Project scaffolding, real-time code generation, and automated packaging.
+- **Tech**: Built with Genkit and Gemini 2.5 Flash for high-speed, reliable reasoning.
+
+---
+
 *Built with ❤️ for the Seedstr Hackathon.*
