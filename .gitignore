@@ -1,5 +1,4 @@
 node_modules
-.env
 cache
 artifacts
 coverage
@@ -13,3 +12,7 @@ cache
 artifacts
 frontend/.next
 frontend/node_modules
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+config.bat

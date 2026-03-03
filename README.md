@@ -1,79 +1,69 @@
-# 🛡️ TrustGuard | Decentralized Freelance Escrow Protocol
+# 🛡️ TrustGuard Nexus
+![TrustGuard Logo](file:///C:/Users/Asus/.gemini/antigravity/brain/8c894afe-2cea-49cc-add7-98a9ed1d6836/trustguard_logo_futuristic_1772525834806.png)
 
-**Live Demo:** [seedstrs-shobhavash09-8326s-projects.vercel.app/seedstr](https://seedstrs-shobhavash09-8326s-projects.vercel.app/seedstr)  
-**GitHub:** [github.com/0xshobha/seedstrs](https://github.com/0xshobha/seedstrs)
+**Live Demo**: [https://seedstrs.vercel.app](https://seedstrs.vercel.app)  
+**Agent ID**: `cmmafayzm000510h14505tddl`  
+**GitHub**: [github.com/0xshobha/seedstrs](https://github.com/0xshobha/seedstrs)
+
+🚀 **Welcome to TrustGuard**  
+TrustGuard is a trustless, decentralized escrow platform designed to eliminate payment friction between freelancers and clients. Built for the Seedstr Hackathon, our protocol ensures that funds are only released when both parties are satisfied, or through fair on-chain arbitration.
 
 ---
 
-## 🚀 Welcome to TrustGuard
-**TrustGuard** is a trustless, decentralized escrow platform designed to eliminate payment friction between freelancers and clients. Built for the **Seedstr Hackathon**, our protocol ensures that funds are only released when both parties are satisfied, or through fair on-chain arbitration.
-
----
-
-## 🏆 Hackathon Highlights
+### 🏆 Hackathon Highlights
 - **Premium UX/UI**: High-end "Amoled Black & Claymorphism" design with real-time protocol statistics.
-- **Robust Security**: Protected by OpenZeppelin's `ReentrancyGuard` and audited logic patterns.
+- **AI-Powered Architecture**: Integrated with **Seedstr Nexus**, an intelligent Genkit agent for scaffolding, generating, and explaining work contracts.
+- **Robust Security**: Protected by OpenZeppelin's ReentrancyGuard and audited logic patterns.
 - **On-Chain Settlement**: Full lifecycle management—from funding to release—completely on the Polygon network.
 - **Fair Arbitration**: Built-in dispute resolution handled by cryptographically authorized arbitrators.
 
 ---
 
-## ✨ Full-Cycle Escrow Architecture
+### ✨ Full-Cycle Escrow Architecture
 TrustGuard uses a non-custodial model where the Smart Contract acts as the neutral third party:
+
 1.  **Initiate**: Client creates a job and funds the escrow with MATIC/ETH.
 2.  **Lock**: Freelancer accepts the contract, binding the two parties.
-3.  **Deliver**: Work is performed outside of the protocol or attached via metadata.
-4.  **Settle**: Client approves work → Funds instantly release to the Freelancer.
-5.  **Dispute**: If conflict arises, either party can trigger an on-chain dispute for admin arbitration.
+3.  **Deliver**: Work is performed and verified by the protocol.
+4.  **Settle**: Funds are released automatically or handled by arbitration if a dispute arises.
 
 ---
 
-## 🛠️ Tech Stack & Layers
-- **Frontend Layer**: Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion.
-- **Protocol Layer**: Solidity 0.8.20, Hardhat, Ethers.js.
-- **Security Layer**: OpenZeppelin (ReentrancyGuard, Ownable).
-- **Network Layer**: Polygon Mumbai Testnet (EVM Compatible).
+### 🤖 Powered by Seedstr Nexus
+The AI agent lives at the root route (`/`) and acts as your Senior AI Engineer to:
+- **Scaffold**: Plan entire project structures.
+- **Generate**: Build specific Solidity and React components.
+- **Explain**: Teach technical logic to users and developers.
 
 ---
 
-## 🔒 Security Features
-- **Reentrancy Protection**: High-level defense against multi-call drainage attacks.
-- **Role-Based Access**: Cryptographically enforced restrictions (OnlyClient, OnlyFreelancer).
-- **Event-Driven UI**: Every on-chain mutation triggers a professional toast notification.
-- **Fail-Safe Cancel**: Clients can revoke funding instantly if no freelancer has yet committed.
+### 🛠️ Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **AI Engine**: Google Genkit + Google AI (Gemini 1.5 Flash)
+- **Blockchain**: Polygon Network
+- **Contracts**: Solidity, Hardhat, Ethers.js
+- **Styling**: Tailwind CSS + Framer Motion (Glassmorphism)
 
 ---
 
-## ⚙️ Project Structure
-```bash
-freelance-escrow/
-├── contracts/        # Core Solidity Protocol
-├── frontend/         # Premium Next.js Dashboard
-├── scripts/          # Network Deployment Scripts
-├── test/             # Correctness & Edge-Case Unit Tests
-└── docs/             # Technical & Security Documentation
-```
+### 🚀 Getting Started
 
----
+1.  **Clone & Install**:
+    ```bash
+    git clone https://github.com/0xshobha/seedstrs.git
+    cd seedstrs/frontend
+    npm install
+    ```
 
-## 🛤️ Roadmap (Future Extensions)
-- [ ] **Milestone Payments**: Automated multi-stage funding releases.
-- [ ] **ERC-20 Multi-Asset Support**: Pay in stablecoins (USDC/DAI).
-- [ ] **Decentralized Arbitration (DAO)**: Community-led dispute resolution.
-- [ ] **On-Chain Reputation**: Performance-based trust scores for users.
+2.  **Environment Setup**:
+    Create a `.env.local` in `frontend/` with:
+    ```env
+    GOOGLE_GENAI_API_KEY=your_key
+    ```
 
----
+3.  **Run Locally**:
+    ```bash
+    npm run dev
+    ```
 
-## 📄 License
-TrustGuard is released under the **MIT License**.
-
----
-## 🤖 Seedstr Nexus (AI Agent)
-**Seedstr Nexus** is our "well-rounded" AI Agent built for the Seedstr Blind Hackathon.
-- **Location**: `/seedstr`
-- **Capabilities**: Project scaffolding, real-time code generation, and automated packaging.
-- **Tech**: Built with Genkit and Gemini 2.5 Flash for high-speed, reliable reasoning.
-
----
-
-*Built with ❤️ for the Seedstr Hackathon.*
+Built with ❤️ for the **Seedstr Blind Hackathon 2026**.
