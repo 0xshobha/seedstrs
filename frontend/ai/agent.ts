@@ -27,6 +27,7 @@ export const codeGeneratorTool = agentAi.defineTool(
     async (input: z.infer<typeof CodeGeneratorSchema>) => {
         const { filename, purpose, techStack } = input;
         const response = await agentAi.generate({
+            model: 'googleai/gemini-1.5-flash-latest',
             prompt: `Act as a Senior Full-Stack AI Engineer. Generate a production-ready file named "${filename}" for the following purpose: ${purpose}. 
        Use the following tech stack: ${techStack.join(', ')}. 
        Ensure the code is modern, accessible, and follows best practices. Provide ONLY the code without any markdown wrappers unless specifically asked.`,
@@ -57,6 +58,7 @@ export const projectScaffolderTool = agentAi.defineTool(
     async (input: z.infer<typeof ProjectScaffolderSchema>) => {
         const { projectName, description } = input;
         const response = await agentAi.generate({
+            model: 'googleai/gemini-1.5-flash-latest',
             prompt: `Plan a professional project structure for "${projectName}". 
        Description: ${description}. 
        List all essential files for a full-stack Next.js app. 
@@ -94,6 +96,7 @@ export const codeExplainerTool = agentAi.defineTool(
     async (input: z.infer<typeof CodeExplainerSchema>) => {
         const { codeSnippet, context } = input;
         const response = await agentAi.generate({
+            model: 'googleai/gemini-1.5-flash-latest',
             prompt: `As an AI Architect, explain the following code or system design:
        
        CODE/DESIGN:
@@ -123,6 +126,7 @@ export const seedstrAgent = agentAi.defineFlow(
     async (input: { prompt: string }) => {
         const { prompt } = input;
         const response = await agentAi.generate({
+            model: 'googleai/gemini-1.5-flash-latest',
             prompt: `You are Seedstr Nexus, the flagship "well-rounded" AI agent for the Seedstr Blind Hackathon. 
       Your mission is to assist developers in building state-of-the-art projects from inception to deployment.
       
